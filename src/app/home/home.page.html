@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-icon size="large" name="film-outline" slot="start"></ion-icon>
+    <ion-title align="center">
+      Movies
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngFor="let film of movie.events">
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-left">
+              <img src="https://image.tmdb.org/t/p/w500/{{film.poster_path}}" height="150px" class="me-1">
+            </ion-col>
+            <ion-col>
+              <h3>{{film.title}}</h3>
+              <small><i>
+              <p *ngIf=" film.vote_average > 7" > <ion-text color="primary">Rating : {{film.vote_average}}</ion-text>  </p>
+              <p *ngIf=" film.vote_average >6 && film.vote_average <=7" > <ion-text color="success">Rating : {{film.vote_average}}</ion-text>  </p>
+              <p *ngIf=" film.vote_average <= 6" > <ion-text color="danger">Rating : {{film.vote_average}}</ion-text>  </p>
+              <p>Release : {{film.release_date | date: 'dd MMM YYYY'}}</p>
+              </i></small>
+            </ion-col>
+              </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-icon size="large" name="film-outline" slot="start"></ion-icon>
+    <ion-title align="center">
+      Cavita Santi 20.01.4548
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
